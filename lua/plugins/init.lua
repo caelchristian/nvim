@@ -4,12 +4,27 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
+  -- nvim-lspconfig
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
+    end,
+  },
+  -- mason
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  -- mason-lspconfig
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup {
+        ensure_installed = { "fsautocomplete" }, -- You can add more servers here
+      }
     end,
   },
 
